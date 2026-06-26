@@ -83,6 +83,10 @@
   .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px;}
   .gallery img{width:100%;height:100%;object-fit:cover;border-radius:12px;border:1px solid var(--line);cursor:pointer;background:#fff;transition:transform .2s, box-shadow .2s;aspect-ratio:3/4;}
   .gallery img:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(15,39,66,.14);}
+  .vthumb{position:relative;padding:0;border:1px solid var(--line);border-radius:12px;overflow:hidden;cursor:pointer;background:#000;aspect-ratio:3/4;display:block;width:100%;transition:transform .2s, box-shadow .2s;}
+  .vthumb img{width:100%;height:100%;object-fit:cover;display:block;}
+  .vthumb:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(15,39,66,.2);}
+  .vlabel{position:absolute;left:0;right:0;bottom:0;padding:18px 10px 9px;background:linear-gradient(to top,rgba(0,0,0,.7),transparent);color:#fff;font-size:13px;font-family:'Poppins',sans-serif;font-weight:600;text-align:center;}
   .feature-shot{margin-top:22px;text-align:center;}
   .feature-shot img{max-width:100%;border-radius:14px;border:1px solid var(--line);box-shadow:0 10px 30px rgba(15,39,66,.12);cursor:pointer;}
   .feature-cap{color:var(--muted);font-size:15px;margin-top:12px;}
@@ -96,7 +100,7 @@
 
   /* Trust / escrow */
   .trust{background:#f0f9f3;border:1px solid #cdebd6;border-radius:16px;padding:28px;margin-top:8px;display:flex;gap:22px;align-items:center;}
-  .trust img{height:74px;width:auto;flex-shrink:0;}
+  .trust img{height:120px;width:auto;flex-shrink:0;background:#fff;border-radius:14px;padding:16px;box-shadow:0 8px 24px rgba(20,98,47,.16);}
   .trust h3{font-size:19px;color:#14622f;margin-bottom:4px;}
   .trust p{margin:0;color:#2f5c3f;font-size:15.5px;}
 
@@ -112,8 +116,10 @@
   footer a{color:var(--blue-dark);text-decoration:none;}
 
   /* Lightbox */
-  #lb{display:none;position:fixed;inset:0;background:rgba(10,18,30,.9);z-index:99;align-items:center;justify-content:center;padding:24px;cursor:zoom-out;}
-  #lb img{max-width:100%;max-height:92vh;border-radius:10px;box-shadow:0 20px 60px rgba(0,0,0,.5);}
+  #lb{display:none;position:fixed;inset:0;background:rgba(10,18,30,.92);z-index:99;align-items:center;justify-content:center;padding:24px;cursor:zoom-out;}
+  #lbInner img{max-width:100%;max-height:92vh;border-radius:10px;box-shadow:0 20px 60px rgba(0,0,0,.5);display:block;}
+  .lb-video{width:min(440px,88vw);height:min(86vh,760px);}
+  .lb-video iframe{width:100%;height:100%;border:0;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,.5);background:#000;}
 
   @media (max-width:640px){
     body{font-size:16px;}
@@ -201,17 +207,30 @@
         <div class="feature-cap">Week 1 sales from one of our newer clients, Kevin Richardson. An honest look at what the first week can look like.</div>
       </div>
 
-      <h3 style="margin-top:38px;font-size:19px;">Customer testimonials</h3>
+      <h3 style="margin-top:38px;font-size:19px;">Video testimonials</h3>
       <div class="gallery">
-        <img class="lb-img" src="https://assets.cdn.filesafe.space/ddiwrZXA1o6ZV4ChCDor/media/6a1e8176ff82912d65e35a3e.jpg" alt="Client testimonial">
-        <img class="lb-img" src="https://assets.cdn.filesafe.space/ddiwrZXA1o6ZV4ChCDor/media/6a1e8176ff82912d65e35a3d.jpg" alt="Client testimonial">
-        <img class="lb-img" src="https://assets.cdn.filesafe.space/ddiwrZXA1o6ZV4ChCDor/media/6a1e8176ff82912d65e35a3f.jpg" alt="Client testimonial">
+        <button class="vthumb" data-vid="1WGgwL88GoNc6QDD1dQPZxN04EcJ2k1Hp">
+          <img src="https://assets.cdn.filesafe.space/ddiwrZXA1o6ZV4ChCDor/media/6a1e8176ff82912d65e35a3e.jpg" alt="Client video testimonial">
+          <span class="vlabel">▶ Watch</span>
+        </button>
+        <button class="vthumb" data-vid="1NrHRQ34w6WiXvX4VLvlUfHKtaswRiKNL">
+          <img src="https://assets.cdn.filesafe.space/ddiwrZXA1o6ZV4ChCDor/media/6a1e8176ff82912d65e35a3d.jpg" alt="Client video testimonial">
+          <span class="vlabel">▶ Watch</span>
+        </button>
+        <button class="vthumb" data-vid="1WGgwL88GoNc6QDD1dQPZxN04EcJ2k1Hp">
+          <img src="https://assets.cdn.filesafe.space/ddiwrZXA1o6ZV4ChCDor/media/6a1e8176ff82912d65e35a3f.jpg" alt="Client video testimonial">
+          <span class="vlabel">▶ Watch</span>
+        </button>
+      </div>
+
+      <h3 style="margin-top:34px;font-size:19px;">More from clients</h3>
+      <div class="gallery">
         <img class="lb-img" src="https://assets.cdn.filesafe.space/ddiwrZXA1o6ZV4ChCDor/media/6a3e9956cb92c4e0c89bf061.png" alt="Client text testimonial">
         <img class="lb-img" src="https://assets.cdn.filesafe.space/ddiwrZXA1o6ZV4ChCDor/media/6a3e9956e2763b2eec0f1570.jpeg" alt="Client text testimonial">
         <img class="lb-img" src="https://assets.cdn.filesafe.space/ddiwrZXA1o6ZV4ChCDor/media/6a3e99565dd1fd13ce62f659.png" alt="Client text testimonial">
         <img class="lb-img" src="https://assets.cdn.filesafe.space/ddiwrZXA1o6ZV4ChCDor/media/6a3e9956c492ddc24c6dc8c8.png" alt="Client text testimonial">
       </div>
-      <p style="text-align:center;color:var(--muted);font-size:14px;margin-top:14px;">Tap any image to enlarge.</p>
+      <p style="text-align:center;color:var(--muted);font-size:14px;margin-top:14px;">Tap a video to play, or any image to enlarge.</p>
     </section>
 
     <!-- Financing -->
@@ -262,14 +281,23 @@
   </footer>
 
   <!-- Lightbox -->
-  <div id="lb"><img src="" alt=""></div>
+  <div id="lb"><div id="lbInner"></div></div>
   <script>
     (function(){
-      var lb=document.getElementById('lb'), lbImg=lb.querySelector('img');
+      var lb=document.getElementById('lb'), lbInner=document.getElementById('lbInner');
+      function openLB(html){lbInner.innerHTML=html;lb.style.display='flex';}
+      function closeLB(){lb.style.display='none';lbInner.innerHTML='';}
       document.querySelectorAll('.lb-img').forEach(function(img){
-        img.addEventListener('click',function(){lbImg.src=this.src;lb.style.display='flex';});
+        img.addEventListener('click',function(e){e.stopPropagation();openLB('<img src="'+this.src+'" alt="">');});
       });
-      lb.addEventListener('click',function(){lb.style.display='none';lbImg.src='';});
+      document.querySelectorAll('.vthumb').forEach(function(btn){
+        btn.addEventListener('click',function(e){
+          e.stopPropagation();
+          var id=this.getAttribute('data-vid');
+          openLB('<div class="lb-video"><iframe src="https://drive.google.com/file/d/'+id+'/preview" allow="autoplay; fullscreen" allowfullscreen></iframe></div>');
+        });
+      });
+      lb.addEventListener('click',closeLB);
 
       var yt=document.getElementById('ytFacade');
       if(yt){yt.addEventListener('click',function(){
