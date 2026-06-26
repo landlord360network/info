@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Landlord 360 | Your Next Steps</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0f2742;
+    --blue:#2563eb;
+    --blue-dark:#1d4ed8;
+    --ink:#1a2433;
+    --muted:#5b6675;
+    --line:#e7ebf1;
+    --bg:#f5f7fa;
+    --card:#ffffff;
+    --green:#16a34a;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+    font-size:17px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{font-family:'Poppins',sans-serif;line-height:1.25;color:var(--navy);margin:0;}
+  a{color:var(--blue-dark);}
+  .wrap{max-width:760px;margin:0 auto;padding:0 20px;}
+
+  /* Header */
+  .top{background:#ffffff;border-bottom:1px solid var(--line);text-align:center;padding:22px 20px;}
+  .top img{height:46px;width:auto;}
+
+  /* Hero */
+  .hero{background:linear-gradient(160deg,#0f2742 0%,#1b3c63 100%);color:#fff;text-align:center;padding:54px 20px 60px;}
+  .hero h1{color:#fff;font-size:34px;letter-spacing:-0.5px;}
+  .hero p{color:#cdd9e8;font-size:18px;max-width:560px;margin:14px auto 0;}
+  .hero .cta{margin-top:28px;}
+
+  /* Buttons */
+  .btn{
+    display:inline-block;background:var(--blue);color:#fff !important;text-decoration:none;
+    font-family:'Poppins',sans-serif;font-weight:600;font-size:17px;
+    padding:15px 34px;border-radius:10px;transition:background .2s, transform .2s;
+    box-shadow:0 6px 18px rgba(37,99,235,.28);
+  }
+  .btn:hover{background:var(--blue-dark);transform:translateY(-1px);}
+  .btn.big{font-size:19px;padding:18px 44px;}
+  .btn.ghost{background:#fff;color:var(--blue-dark) !important;border:1.5px solid var(--line);box-shadow:none;}
+  .btn.ghost:hover{border-color:var(--blue);background:#f8faff;}
+
+  /* Sections */
+  section{padding:46px 0;border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  .eyebrow{font-family:'Poppins',sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;font-size:13px;color:var(--blue);margin-bottom:10px;}
+  h2{font-size:26px;margin-bottom:6px;}
+  .lead{color:var(--muted);margin:8px 0 0;}
+
+  /* Video */
+  .video{position:relative;padding-bottom:56.25%;height:0;border-radius:14px;overflow:hidden;box-shadow:0 10px 30px rgba(15,39,66,.12);margin-top:22px;background:#0f2742;cursor:pointer;}
+  .video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;}
+  .ytposter{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+  .ytplay{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:78px;height:78px;border:0;border-radius:50%;background:rgba(0,0,0,.72);cursor:pointer;transition:background .2s;}
+  .ytplay:before{content:"";position:absolute;left:54%;top:50%;transform:translate(-50%,-50%);border-style:solid;border-width:15px 0 15px 25px;border-color:transparent transparent transparent #fff;}
+  .video:hover .ytplay{background:#cc0000;}
+
+  /* Resource cards */
+  .cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px;}
+  .rcard{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:6px;}
+  .rcard .ic{font-size:24px;}
+  .rcard h3{font-size:18px;}
+  .rcard p{margin:0;color:var(--muted);font-size:15px;flex:1;}
+  .rcard a{margin-top:14px;font-weight:600;text-decoration:none;font-family:'Poppins',sans-serif;font-size:15px;}
+
+  /* Gallery */
+  .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px;}
+  .gallery img{width:100%;height:100%;object-fit:cover;border-radius:12px;border:1px solid var(--line);cursor:pointer;background:#fff;transition:transform .2s, box-shadow .2s;aspect-ratio:3/4;}
+  .gallery img:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(15,39,66,.14);}
+  .feature-shot{margin-top:22px;text-align:center;}
+  .feature-shot img{max-width:100%;border-radius:14px;border:1px solid var(--line);box-shadow:0 10px 30px rgba(15,39,66,.12);cursor:pointer;}
+  .feature-cap{color:var(--muted);font-size:15px;margin-top:12px;}
+
+  /* Financing */
+  .finance{background:#fff;border:1px solid var(--line);border-radius:16px;padding:30px;margin-top:24px;}
+  .terms{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;margin:22px 0 6px;text-align:center;}
+  .term .num{font-family:'Poppins',sans-serif;font-weight:700;font-size:30px;color:var(--navy);}
+  .term .lbl{color:var(--muted);font-size:14px;margin-top:2px;}
+  .roi{background:#eef5ff;border-radius:10px;padding:14px 18px;color:#13386e;font-size:15.5px;margin-top:6px;}
+
+  /* Trust / escrow */
+  .trust{background:#f0f9f3;border:1px solid #cdebd6;border-radius:16px;padding:28px;margin-top:8px;display:flex;gap:22px;align-items:center;}
+  .trust img{height:74px;width:auto;flex-shrink:0;}
+  .trust h3{font-size:19px;color:#14622f;margin-bottom:4px;}
+  .trust p{margin:0;color:#2f5c3f;font-size:15.5px;}
+
+  /* Final CTA */
+  .final{background:linear-gradient(160deg,#1b3c63 0%,#0f2742 100%);color:#fff;text-align:center;padding:56px 20px;border-radius:18px;margin:40px 0;}
+  .final h2{color:#fff;font-size:28px;}
+  .final p{color:#cdd9e8;max-width:520px;margin:12px auto 0;font-size:17px;}
+  .final .who{margin-top:24px;color:#9fb6d2;font-size:15px;}
+
+  /* Footer */
+  footer{text-align:center;padding:34px 20px 48px;color:var(--muted);font-size:14px;}
+  footer img{height:34px;margin-bottom:14px;opacity:.9;}
+  footer a{color:var(--blue-dark);text-decoration:none;}
+
+  /* Lightbox */
+  #lb{display:none;position:fixed;inset:0;background:rgba(10,18,30,.9);z-index:99;align-items:center;justify-content:center;padding:24px;cursor:zoom-out;}
+  #lb img{max-width:100%;max-height:92vh;border-radius:10px;box-shadow:0 20px 60px rgba(0,0,0,.5);}
+
+  @media (max-width:640px){
+    body{font-size:16px;}
+    .hero h1{font-size:27px;}
+    .hero p{font-size:16px;}
+    h2{font-size:22px;}
+    .cards{grid-template-columns:1fr;}
+    .terms{grid-template-columns:1fr;gap:10px;}
+    .term .num{font-size:26px;}
+    .trust{flex-direction:column;text-align:center;}
+    .gallery{grid-template-columns:repeat(2,1fr);}
+  }
+</style>
+</head>
+<body>
+
+  <!-- Logo bar -->
+  <div class="top">
+    <img src="https://assets.cdn.filesafe.space/ddiwrZXA1o6ZV4ChCDor/media/6898f555d580d62eb857a585.png" alt="Landlord 360">
+  </div>
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="wrap">
+      <h1>Everything from our call, in one place</h1>
+      <p>Take your time and look through the overview, real numbers, a live demo, and results from actual clients. When you're ready, the last step is a quick call with our CEO.</p>
+      <div class="cta">
+        <a class="btn big" href="#book">Book Your Call with Chris</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+
+    <!-- Overview video -->
+    <section id="overview">
+      <div class="eyebrow">Start Here</div>
+      <h2>5-Minute Overview</h2>
+      <p class="lead">A quick walkthrough of the business, how it works, and what you'd be stepping into.</p>
+      <div class="video" id="ytFacade">
+        <img class="ytposter" src="https://img.youtube.com/vi/RgQ-FrPLkBY/hqdefault.jpg" alt="Watch the 5-minute overview">
+        <button class="ytplay" aria-label="Play video"></button>
+      </div>
+    </section>
+
+    <!-- Documents -->
+    <section id="docs">
+      <div class="eyebrow">Dig Into the Details</div>
+      <h2>The Documents</h2>
+      <p class="lead">Two downloads worth your time: the full overview, and the real numbers.</p>
+      <div class="cards">
+        <div class="rcard">
+          <div class="ic">📘</div>
+          <h3>Landlord 360 Overview</h3>
+          <p>The full breakdown of the business, the model, and what's included.</p>
+          <a href="https://assets.cdn.filesafe.space/ddiwrZXA1o6ZV4ChCDor/media/6a1b1a155be84ad64048bbda.pdf" target="_blank" rel="noopener">Download the Overview (PDF) →</a>
+        </div>
+        <div class="rcard">
+          <div class="ic">📊</div>
+          <h3>Real Client P&amp;L</h3>
+          <p>An actual 34-day period from a real client, running on AI only.</p>
+          <a href="https://assets.cdn.filesafe.space/ddiwrZXA1o6ZV4ChCDor/media/6a23225149e55f85197a540d.pdf" target="_blank" rel="noopener">Download the P&amp;L (PDF) →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Demo -->
+    <section id="demo">
+      <div class="eyebrow">See the Product</div>
+      <h2>Eviction Shield Demo</h2>
+      <p class="lead">This is the white-label software you'll be selling. In your business, it gets fully customized to your own brand.</p>
+      <div style="margin-top:22px;">
+        <a class="btn" href="https://www.landlord360.net/softwaredemo" target="_blank" rel="noopener">Take the Product Tour →</a>
+      </div>
+    </section>
+
+    <!-- Results / testimonials -->
+    <section id="results">
+      <div class="eyebrow">Real Results</div>
+      <h2>What clients are seeing</h2>
+      <p class="lead">Straight from the people running this every day.</p>
+
+      <div class="feature-shot">
+        <img class="lb-img" src="https://assets.cdn.filesafe.space/ddiwrZXA1o6ZV4ChCDor/media/6a3e99355aefbd076b96a28a.png" alt="Kevin Richardson week 1 sales">
+        <div class="feature-cap">Week 1 sales from one of our newer clients, Kevin Richardson. An honest look at what the first week can look like.</div>
+      </div>
+
+      <h3 style="margin-top:38px;font-size:19px;">Customer testimonials</h3>
+      <div class="gallery">
+        <img class="lb-img" src="https://assets.cdn.filesafe.space/ddiwrZXA1o6ZV4ChCDor/media/6a1e8176ff82912d65e35a3e.jpg" alt="Client testimonial">
+        <img class="lb-img" src="https://assets.cdn.filesafe.space/ddiwrZXA1o6ZV4ChCDor/media/6a1e8176ff82912d65e35a3d.jpg" alt="Client testimonial">
+        <img class="lb-img" src="https://assets.cdn.filesafe.space/ddiwrZXA1o6ZV4ChCDor/media/6a1e8176ff82912d65e35a3f.jpg" alt="Client testimonial">
+        <img class="lb-img" src="https://assets.cdn.filesafe.space/ddiwrZXA1o6ZV4ChCDor/media/6a3e9956cb92c4e0c89bf061.png" alt="Client text testimonial">
+        <img class="lb-img" src="https://assets.cdn.filesafe.space/ddiwrZXA1o6ZV4ChCDor/media/6a3e9956e2763b2eec0f1570.jpeg" alt="Client text testimonial">
+        <img class="lb-img" src="https://assets.cdn.filesafe.space/ddiwrZXA1o6ZV4ChCDor/media/6a3e99565dd1fd13ce62f659.png" alt="Client text testimonial">
+        <img class="lb-img" src="https://assets.cdn.filesafe.space/ddiwrZXA1o6ZV4ChCDor/media/6a3e9956c492ddc24c6dc8c8.png" alt="Client text testimonial">
+      </div>
+      <p style="text-align:center;color:var(--muted);font-size:14px;margin-top:14px;">Tap any image to enlarge.</p>
+    </section>
+
+    <!-- Financing -->
+    <section id="financing">
+      <div class="eyebrow">Getting Started</div>
+      <h2>Simple, In-House Financing</h2>
+      <p class="lead">Most people get started with us directly. No banks, no SBA paperwork.</p>
+      <div class="finance">
+        <div class="terms">
+          <div class="term"><div class="num">$15k</div><div class="lbl">Down to start</div></div>
+          <div class="term"><div class="num">$10k</div><div class="lbl">Over 12 months</div></div>
+          <div class="term"><div class="num">0%</div><div class="lbl">Interest</div></div>
+        </div>
+        <div class="roi">Even on below-average performance, that's roughly a <strong>2-3 month ROI</strong> on your down payment. With most business purchases, you're lucky to see ROI in 12 to 24 months.</div>
+      </div>
+    </section>
+
+    <!-- Escrow trust -->
+    <section id="trust">
+      <div class="eyebrow">Safe &amp; Secure</div>
+      <h2>Your payment is protected</h2>
+      <div class="trust">
+        <img src="https://assets.cdn.filesafe.space/ddiwrZXA1o6ZV4ChCDor/media/6a3e990d5aefbd076b969f5a.png" alt="Escrow.com Verified Partner">
+        <div>
+          <h3>We're an Escrow.com Verified Partner</h3>
+          <p>Larger payments can be handled through Escrow.com, so your funds are held safely and only released once everything on your end is in place. You're protected the whole way through.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <div class="final" id="book">
+      <h2>Ready for the last step?</h2>
+      <p>Book a call with Chris Clegg, CEO of Landlord 360. He'll answer any final questions and walk you through getting started.</p>
+      <div style="margin-top:26px;">
+        <a class="btn big" href="https://api.leadconnectorhq.com/widget/booking/c5kvFfwku7oprrTDbZxb" target="_blank" rel="noopener">Book My Call with Chris</a>
+      </div>
+      <div class="who">Chris Clegg · CEO, Landlord 360 Network</div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <img src="https://assets.cdn.filesafe.space/ddiwrZXA1o6ZV4ChCDor/media/6898f555d580d62eb857a585.png" alt="Landlord 360"><br>
+    Landlord 360 Network<br>
+    <a href="https://www.landlord360.net">www.landlord360.net</a> · <a href="mailto:info@landlord360.net">info@landlord360.net</a>
+  </footer>
+
+  <!-- Lightbox -->
+  <div id="lb"><img src="" alt=""></div>
+  <script>
+    (function(){
+      var lb=document.getElementById('lb'), lbImg=lb.querySelector('img');
+      document.querySelectorAll('.lb-img').forEach(function(img){
+        img.addEventListener('click',function(){lbImg.src=this.src;lb.style.display='flex';});
+      });
+      lb.addEventListener('click',function(){lb.style.display='none';lbImg.src='';});
+
+      var yt=document.getElementById('ytFacade');
+      if(yt){yt.addEventListener('click',function(){
+        yt.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/RgQ-FrPLkBY?autoplay=1&rel=0" title="Landlord 360 Overview" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"></iframe>';
+      });}
+    })();
+  </script>
+
+</body>
+</html>
