@@ -159,7 +159,7 @@
       <div class="eyebrow">Start Here</div>
       <h2>5-Minute Overview</h2>
       <p class="lead">A quick walkthrough of the business, how it works, and what you'd be stepping into.</p>
-      <div class="video" id="ytFacade">
+      <div class="video ytfacade" data-ytid="RgQ-FrPLkBY">
         <img class="ytposter" src="https://img.youtube.com/vi/RgQ-FrPLkBY/hqdefault.jpg" alt="Watch the 5-minute overview">
         <button class="ytplay" aria-label="Play video"></button>
       </div>
@@ -205,6 +205,13 @@
       <div class="feature-shot">
         <img class="lb-img" src="https://assets.cdn.filesafe.space/ddiwrZXA1o6ZV4ChCDor/media/6a3e99355aefbd076b96a28a.png" alt="Kevin Richardson week 1 sales">
         <div class="feature-cap">Week 1 sales from one of our newer clients, Kevin Richardson. An honest look at what the first week can look like.</div>
+      </div>
+
+      <h3 style="margin-top:38px;font-size:19px;">A real customer call</h3>
+      <p class="lead" style="margin-bottom:0;">An actual recorded call with a tenant who used Eviction Shield to help with their eviction. This is the product you'd be selling.</p>
+      <div class="video ytfacade" data-ytid="GH0PXXtNI7I">
+        <img class="ytposter" src="https://img.youtube.com/vi/GH0PXXtNI7I/hqdefault.jpg" alt="Real recorded customer call">
+        <button class="ytplay" aria-label="Play video"></button>
       </div>
 
       <h3 style="margin-top:38px;font-size:19px;">Video testimonials</h3>
@@ -299,10 +306,12 @@
       });
       lb.addEventListener('click',closeLB);
 
-      var yt=document.getElementById('ytFacade');
-      if(yt){yt.addEventListener('click',function(){
-        yt.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/RgQ-FrPLkBY?autoplay=1&rel=0" title="Landlord 360 Overview" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"></iframe>';
-      });}
+      document.querySelectorAll('.ytfacade').forEach(function(yt){
+        yt.addEventListener('click',function(){
+          var id=this.getAttribute('data-ytid');
+          this.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0" title="Landlord 360 video" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"></iframe>';
+        });
+      });
     })();
   </script>
 
